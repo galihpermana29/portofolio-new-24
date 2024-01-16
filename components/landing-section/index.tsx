@@ -8,7 +8,7 @@ export default function LandingSection() {
 	if (!isMatchedTarget) {
 		return (
 			<div>
-				<div className="h-[80vh] bg-[#fcfaf5] bg-cover relative overflow-hidden">
+				<div className="max-h-[80vh] bg-[#fcfaf5] bg-cover relative overflow-hidden">
 					<div className="relative z-[2] border-red-300 min-h-[80vh] flex items-center justify-center">
 						<div className="px-[12%]">
 							<div className="flex items-center justify-center text-center">
@@ -24,7 +24,7 @@ export default function LandingSection() {
 							</div>
 						</div>
 					</div>
-					<div className="absolute top-0 w-full flex justify-center z-[1] h-[90vh]">
+					<div className="absolute top-0 w-full flex justify-center z-[1] h-[100vh]">
 						<Image src={lineImage} width={3000} height={3000} alt="line" />
 					</div>
 				</div>

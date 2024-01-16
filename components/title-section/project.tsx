@@ -14,8 +14,8 @@ export default function ProjectTitle({ refSection }: ProjectTitleI) {
 		return (
 			<div
 				id="image_wrapper_2"
-				className="min-h-[100vh] bg-[#fcfaf5] bg-cover relative overflow-hidden min-w-[100vw] image_wrapper_2 image_wrapper ">
-				<div className="h-screen flex justify-center items-center">
+				className="max-h-[70vh] bg-[#fcfaf5] bg-cover relative overflow-hidden min-w-[100vw] image_wrapper_2 image_wrapper ">
+				<div className="h-[70vh] flex justify-center items-center">
 					<div className="mb-[50px] px-[7%]">
 						<div className="libre italic text-[25px] mb-[30px]">
 							Things {"I've"} Done
@@ -29,8 +29,8 @@ export default function ProjectTitle({ refSection }: ProjectTitleI) {
 				<div className="absolute top-0 w-full flex justify-center z-[1] h-screen">
 					<Image src={lineImage} width={3000} height={3000} alt="line" />
 				</div>
-				<div className="libre text-[80px] italic absolute bottom-[-20px] left-0 right-0 text-center text-[#D7D7D7]">
-					Projects
+				<div className="libre text-[100px] italic absolute bottom-0 left-0 right-0 text-center text-[#D7D7D7]">
+					Project
 				</div>
 			</div>
 		);

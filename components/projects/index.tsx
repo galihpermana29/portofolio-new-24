@@ -12,15 +12,24 @@ export default function Projects({ data = [], bg }: ProjectsI) {
 		return (
 			<div
 				id="image_wrapper_1"
-				className={`h-screen p-[30px] justify-center items-center flex flex-col gap-[15px] min-w-[100vw] image_wrapper image_wrapper_1 relative ${bg}`}>
-				<div className="w-[90%] bg-[#fcfaf5] flex justify-center items-center p-[20px] rounded-lg">
+				className={`h-[60vh]  grid grid-cols-2 min-w-[100vw] image_wrapper image_wrapper_1 relative ${bg}`}>
+				<div className="w-[100%]  bg-[#F8F8F8] flex justify-center items-center p-[5px]">
 					<Image src={data[1]} alt="image" className="w-[90%]" />
 				</div>
-				<div className="w-[90%] bg-[#fcfaf5] flex justify-center items-center p-[20px] rounded-lg">
+				<div className="w-[100%]  bg-[#25867f]  flex justify-center items-center p-[5px]">
 					<Image src={data[0]} alt="image" className="w-[90%]" />
 				</div>
-				<div className="w-[90%]  bg-[#fcfaf5] flex justify-center items-center p-[20px] rounded-lg">
+				<div className="w-[100%]   bg-[#25867f]   flex justify-center items-center p-[5px]">
 					<Image src={data[2]} alt="image" className="w-[90%]" />
+				</div>
+				<div className="w-[100%]   bg-[#F8F8F8] flex justify-center items-center p-[5px]">
+					<Image src={data[3]} alt="image" className="w-[90%]" />
+				</div>
+				<div className="w-[100%]   bg-[#F8F8F8] flex justify-center items-center p-[5px]">
+					<Image src={data[4]} alt="image" className="w-[90%]" />
+				</div>
+				<div className="w-[100%]   bg-[#25867f] flex justify-center items-center p-[5px]">
+					<Image src={data[5]} alt="image" className="w-[90%]" />
 				</div>
 			</div>
 		);

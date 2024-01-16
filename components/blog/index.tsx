@@ -45,33 +45,28 @@ export default function Blogs() {
 	const isMatchedTarget = useMediaQuery(768);
 	if (!isMatchedTarget) {
 		return (
-			<div>
-				<div
-					id="image_wrapper_3"
-					className=" h-screen flex flex-col  min-w-[100vw] image_wrapper_3 image_wrapper m-auto justify-center items-center px-[10%] py-[50px] gap-[20px]">
-					{dataBlog.map((val, idx) => (
-						<div
-							key={idx}
-							className="flex justify-center items-center overflow-hidden">
-							<div className={`w-full bg-cover ${val.color} p-[30px]`}>
-								<div className="flex flex-col justify-between h-full gap-[20px] mt-[20px] overflow-hidden">
-									<div className="text-white text-[14px] poppins">
-										{val.title}
-									</div>
-									<Link
-										target="_blank"
-										href={val.link}
-										className="text-[#646464] text-[14px] poppins underline">
-										Read
-									</Link>
-									{/* <div>
-										<Image src={val.img} alt="img" />
-									</div> */}
+			<div
+				id="image_wrapper_3"
+				className="flex flex-col min-w-[100vw] image_wrapper_3 image_wrapper justify-start items-center">
+				{dataBlog.map((val, idx) => (
+					<div
+						key={idx}
+						className="flex justify-center items-start overflow-hidden w-full flex-1 border-t-[0.1px]">
+						<div className={`w-full bg-cover bg-[#1D1B26] p-[30px]`}>
+							<div className="flex flex-col justify-between h-full overflow-hidden">
+								<div className="text-white text-[14px] poppins min-w-[200px] max-w-[300px]">
+									{val.title}
 								</div>
+								<Link
+									target="_blank"
+									href={val.link}
+									className="text-[#646464] text-[14px] poppins underline mt-[10px]">
+									Read
+								</Link>
 							</div>
 						</div>
-					))}
-				</div>
+					</div>
+				))}
 			</div>
 		);
 	}
