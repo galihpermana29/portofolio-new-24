@@ -10,8 +10,10 @@ import Lenis from '@studio-freight/lenis';
 import Technology from '@/components/technology';
 import Motto from '@/components/motto';
 import HorizontalSection from '@/components/horizontal-section';
+import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
 
 export default function Home() {
+	const isMatchedTarget = useMediaQuery(768);
 	function initialiseLenisScroll() {
 		const lenis = new Lenis({
 			smoothWheel: true,
@@ -30,14 +32,19 @@ export default function Home() {
 	useEffect(() => {
 		initialiseLenisScroll();
 	}, []);
+
+	if (isMatchedTarget === null) {
+		return 'loading';
+	}
+
 	return (
 		<main className="overflow-hidden">
 			<div className="relative">
 				<LandingSection />
 			</div>
-			<HorizontalSection />
+			{/* <HorizontalSection />
 			<Technology />
-			<Motto />
+			<Motto /> */}
 		</main>
 	);
 }
