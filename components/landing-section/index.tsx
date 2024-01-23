@@ -27,22 +27,24 @@ export default function LandingSection() {
 					id: '1',
 				},
 				opacity: 0,
-				y: -5,
+				y: 0,
 				stagger: 0.1,
-				duration: 0.1,
+				duration: 0.5,
 			});
 		}
 	}, [isMatchedTarget]);
+
+	console.log(isMatchedTarget, 'asjdhakjs');
 
 	if (!isMatchedTarget) {
 		return (
 			<div>
 				<div className="max-h-[80vh] bg-[#fcfaf5] bg-cover relative overflow-hidden">
 					<div className="relative z-[2] border-red-300 min-h-[80vh] flex items-center justify-center">
-						<div className="px-[12%]">
+						<div className="px-[10%]">
 							<div className="flex items-center justify-center text-center">
-								<p className="text-[2em] font-[600] " ref={textToAnimate}>
-									{"I'm"} Galih, a{' '}
+								<p className="text-[2em] font-[600] ">
+									{"I'm"} Galih Permana, a{' '}
 									<span className="font-[100] italic">
 										web-3 frontend developer
 									</span>{' '}
@@ -69,7 +71,7 @@ export default function LandingSection() {
 							<p
 								className="text-[4em] font-[600] max-w-[900px] opacity-1"
 								ref={textToAnimate}>
-								{"I'm"} Galih, a{' '}
+								{"I'm"} Galih Permana, a{' '}
 								<span className="font-[100] italic">
 									web-3 frontend developer
 								</span>{' '}

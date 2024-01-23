@@ -12,7 +12,7 @@ export default function Projects({ data = [], bg }: ProjectsI) {
 		return (
 			<div
 				id="image_wrapper_1"
-				className={`h-[60vh]  grid grid-cols-2 min-w-[100vw] image_wrapper image_wrapper_1 relative ${bg}`}>
+				className={`h-[60vh] grid grid-cols-2 min-w-[100vw] image_wrapper image_wrapper_1 relative ${bg}`}>
 				<div className="w-[100%]  bg-[#F8F8F8] flex justify-center items-center p-[5px]">
 					<Image src={data[1]} alt="image" className="w-[90%]" />
 				</div>

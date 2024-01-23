@@ -14,6 +14,7 @@ import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
 
 export default function Home() {
 	const isMatchedTarget = useMediaQuery(768);
+
 	function initialiseLenisScroll() {
 		const lenis = new Lenis({
 			smoothWheel: true,
@@ -33,18 +34,18 @@ export default function Home() {
 		initialiseLenisScroll();
 	}, []);
 
-	if (isMatchedTarget === null) {
-		return 'loading';
-	}
+	// if (isMatchedTarget === null) {
+	// 	return 'loading';
+	// }
 
 	return (
 		<main className="overflow-hidden">
 			<div className="relative">
 				<LandingSection />
 			</div>
-			{/* <HorizontalSection />
+			<HorizontalSection />
 			<Technology />
-			<Motto /> */}
+			<Motto />
 		</main>
 	);
 }

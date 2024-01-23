@@ -49,10 +49,10 @@ export default function HorizontalSection() {
 			}
 		);
 
-		if (!isMatchedTarget) {
-			pin.kill();
-			return;
-		}
+		// if (!isMatchedTarget) {
+		// 	pin.kill();
+		// 	return;
+		// }
 
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -82,11 +82,11 @@ export default function HorizontalSection() {
 		gsap.from(text2.chars, {
 			scrollTrigger: {
 				trigger: textReveal2Ref.current,
-				end: '-300 left',
+				end: '-800 left',
 				start: '-1000 left',
 				containerAnimation: pin,
 				scrub: true,
-				// markers: true,
+				markers: true,
 				id: '2',
 			},
 			opacity: 0.1,
@@ -116,12 +116,12 @@ export default function HorizontalSection() {
 		tl.to(bgRef.current, { backgroundPosition: -0.001, ease: 'none' }, 0);
 	}, [isMatchedTarget]);
 
-	if (!isMatchedTarget) {
+	if (isMatchedTarget === false) {
 		return (
 			<main className="">
 				<Projects data={dataImageProjectOne} bg="bg-[#2F2E2C]" />
+				{/* <Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" /> */}
 				<ProjectTitle />
-				<Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" />
 				<Blogs />
 				<BlogTitle />
 			</main>
