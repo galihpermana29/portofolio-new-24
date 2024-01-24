@@ -1,8 +1,12 @@
 import Image from 'next/image';
 import standout from '@/public/standout.png';
 import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
+import { MutableRefObject } from 'react';
 
-export default function Motto() {
+interface MottoI {
+	parallaxRef?: MutableRefObject<null | any>;
+}
+export default function Motto({ parallaxRef }: MottoI) {
 	const isMatchedTarget = useMediaQuery(768);
 	if (!isMatchedTarget) {
 		return (
@@ -37,7 +41,9 @@ export default function Motto() {
 	}
 
 	return (
-		<div className="bg-[#1B1B1B] min-h-screen flex justify-center relative">
+		<div
+			className="bg-[#1B1B1B] min-h-screen flex justify-center relative"
+			ref={parallaxRef}>
 			<div className=" flex flex-col justify-center items-center max-w-[70%] relative">
 				<div className="text-[70px] font-[200] text-white top-[50%] translate-y-[-50%] absolute text-right self-end">
 					You bring the <span className="italic">vision</span>, <br />I help you{' '}

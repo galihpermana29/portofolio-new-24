@@ -15,10 +15,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/all';
 import { useWindowSize } from '@uidotdev/usehooks';
 interface HorizontalSectionI {
-	heroRef: MutableRefObject<null | any>;
+	heroRef2?: MutableRefObject<null | any>;
 }
 
-export default function HorizontalSection() {
+export default function HorizontalSection({ heroRef2 }: HorizontalSectionI) {
 	const sectionRef = useRef(null);
 	const triggerRef = useRef(null);
 	const heroRef = useRef(null);
@@ -26,6 +26,7 @@ export default function HorizontalSection() {
 	const bgRef = useRef(null);
 	const textRevealRef = useRef(null);
 	const textReveal2Ref = useRef(null);
+	const titleRefSection = useRef(null);
 
 	const isMatchedTarget = useMediaQuery(768);
 
@@ -124,7 +125,7 @@ export default function HorizontalSection() {
 		return (
 			<main className="">
 				<Projects data={dataImageProjectOne} bg="bg-[#2F2E2C]" />
-				<Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" />
+				{/* <Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" /> */}
 				<ProjectTitle />
 				<Blogs />
 				<BlogTitle />
@@ -147,7 +148,10 @@ export default function HorizontalSection() {
 				<div className="bg-pattern-1 bg-repeat bg-center" ref={bgRef}>
 					<div ref={parallaxRef}>
 						<div className="flex">
-							<ProjectTitle refSection={textRevealRef} />
+							<ProjectTitle
+								refSection={textRevealRef}
+								refTitleSection={titleRefSection}
+							/>
 						</div>
 					</div>
 				</div>
@@ -157,7 +161,7 @@ export default function HorizontalSection() {
 				<div>
 					<Blogs />
 				</div>
-				<div>
+				<div ref={heroRef2}>
 					<BlogTitle refSection={textReveal2Ref} />
 				</div>
 			</div>

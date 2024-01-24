@@ -1,6 +1,10 @@
 import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
+import { MutableRefObject } from 'react';
+interface TechnologyI {
+	heroRef?: MutableRefObject<null>;
+}
 
-export default function Technology() {
+export default function Technology({ heroRef }: TechnologyI) {
 	const isMatchedTarget = useMediaQuery(768);
 	if (!isMatchedTarget) {
 		return (
@@ -47,7 +51,7 @@ export default function Technology() {
 		);
 	}
 	return (
-		<div>
+		<div ref={heroRef}>
 			<div className="min-h-[100vh] bg-[#fcfaf5] bg-cover flex justify-center relative pt-[10%] ">
 				<div className="flex flex-col justify-end items-center w-max">
 					<h1 className="max-w-[700px] self-start text-[42px]">

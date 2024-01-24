@@ -17,9 +17,6 @@ export default function LandingSection() {
 	const { width } = useWindowSize();
 
 	useEffect(() => {
-		console.log(width, 'size');
-		console.log(isMatchedTarget, 'timeout');
-
 		const text1 = new SplitType(textToAnimate.current as any as TargetElement, {
 			types: 'chars',
 		});
@@ -33,8 +30,8 @@ export default function LandingSection() {
 					id: '1',
 				},
 				opacity: 0,
-				y: 0,
-				stagger: 0.1,
+				y: 60,
+				// stagger: 0.1,
 				duration: 0.5,
 			});
 		}
@@ -50,7 +47,11 @@ export default function LandingSection() {
 						<div className="px-[10%]">
 							<div className="flex items-center justify-center text-center">
 								<p className="text-[2em] font-[600] ">
-									{"I'm"} Galih Permana, a{' '}
+									{"I'm"}{' '}
+									<span className="bg-black text-white rounded-full px-[20px] inline-block">
+										Galih,
+									</span>{' '}
+									a{' '}
 									<span className="font-[100] italic">
 										web-3 frontend developer
 									</span>{' '}
@@ -61,9 +62,9 @@ export default function LandingSection() {
 							</div>
 						</div>
 					</div>
-					<div className="absolute top-0 w-full flex justify-center z-[1] h-[100vh]">
+					{/* <div className="absolute top-0 w-full flex justify-center z-[1] h-[100vh]">
 						<Image src={lineImage} width={3000} height={3000} alt="line" />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		);
@@ -78,7 +79,11 @@ export default function LandingSection() {
 							<p
 								className="text-[4em] font-[600] max-w-[900px] opacity-1"
 								ref={textToAnimate}>
-								{"I'm"} Galih Permana, a{' '}
+								{"I'm"}{' '}
+								<span className="bg-black text-white rounded-full px-[30px]">
+									Galih Permana,
+								</span>{' '}
+								a{' '}
 								<span className="font-[100] italic">
 									web-3 frontend developer
 								</span>{' '}
@@ -89,9 +94,9 @@ export default function LandingSection() {
 						</div>
 					</div>
 				</div>
-				<div className="absolute top-0 w-[100%] flex justify-center z-[1] opacity-4">
+				{/* <div className="absolute top-0 w-[100%] flex justify-center z-[1] opacity-4">
 					<Image src={lineImage} width={3000} height={3000} alt="line" />
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

@@ -11,9 +11,14 @@ import Technology from '@/components/technology';
 import Motto from '@/components/motto';
 import HorizontalSection from '@/components/horizontal-section';
 import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Home() {
 	const isMatchedTarget = useMediaQuery(768);
+	const { width } = useWindowSize();
+
+	const heroRef = useRef(null);
+	const parallaxRef = useRef(null);
 
 	function initialiseLenisScroll() {
 		const lenis = new Lenis({
@@ -34,14 +39,34 @@ export default function Home() {
 		initialiseLenisScroll();
 	}, []);
 
+	useEffect(() => {
+		if (width === null) return;
+		if (width < 768) return;
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: heroRef.current,
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+				invalidateOnRefresh: true,
+				markers: true,
+			},
+		});
+		const movement = -200;
+
+		tl.to(parallaxRef.current, { y: movement, ease: 'none' }, 0);
+		// tl.to(bgRef.current, { backgroundPosition: -0.001, ease: 'none' }, 0);
+	}, [width]);
+
 	return (
 		<main className="overflow-hidden">
 			<div className="relative">
 				<LandingSection />
 			</div>
 			<HorizontalSection />
-			<Technology />
-			<Motto />
+			<Technology heroRef={heroRef} />
+			<Motto parallaxRef={parallaxRef} />
 		</main>
 	);
 }
