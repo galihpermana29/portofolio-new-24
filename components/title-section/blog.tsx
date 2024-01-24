@@ -7,6 +7,7 @@ interface ProjectTitleI {
 }
 export default function BlogTitle({ refSection }: ProjectTitleI) {
 	const isMatchedTarget = useMediaQuery(768);
+
 	if (!isMatchedTarget) {
 		return (
 			<div>
@@ -36,6 +37,7 @@ export default function BlogTitle({ refSection }: ProjectTitleI) {
 			</div>
 		);
 	}
+
 	return (
 		<div
 			id="image_wrapper_4"

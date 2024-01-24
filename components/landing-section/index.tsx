@@ -7,13 +7,19 @@ import gsap from 'gsap';
 import SplitType, { TargetElement } from 'split-type';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/all';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function LandingSection() {
 	const isMatchedTarget = useMediaQuery(768);
 	const textToAnimate = useRef(null);
 	const container = useRef(null);
 
+	const { width } = useWindowSize();
+
 	useEffect(() => {
+		console.log(width, 'size');
+		console.log(isMatchedTarget, 'timeout');
+
 		const text1 = new SplitType(textToAnimate.current as any as TargetElement, {
 			types: 'chars',
 		});
@@ -32,11 +38,11 @@ export default function LandingSection() {
 				duration: 0.5,
 			});
 		}
-	}, [isMatchedTarget]);
+	}, [width]);
 
-	console.log(isMatchedTarget, 'asjdhakjs');
+	if (width === null) return;
 
-	if (!isMatchedTarget) {
+	if (width < 768) {
 		return (
 			<div>
 				<div className="max-h-[80vh] bg-[#fcfaf5] bg-cover relative overflow-hidden">
@@ -62,6 +68,7 @@ export default function LandingSection() {
 			</div>
 		);
 	}
+
 	return (
 		<div ref={container}>
 			<div className="min-h-[100vh] bg-[#fcfaf5] bg-cover relative overflow-hidden">

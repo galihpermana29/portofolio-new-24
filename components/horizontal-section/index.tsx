@@ -13,6 +13,7 @@ import gsap from 'gsap';
 import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/all';
+import { useWindowSize } from '@uidotdev/usehooks';
 interface HorizontalSectionI {
 	heroRef: MutableRefObject<null | any>;
 }
@@ -28,7 +29,13 @@ export default function HorizontalSection() {
 
 	const isMatchedTarget = useMediaQuery(768);
 
+	const { width } = useWindowSize();
+
 	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+		if (width === null) return;
+
 		const pin = gsap.fromTo(
 			sectionRef.current,
 			{
@@ -49,13 +56,6 @@ export default function HorizontalSection() {
 			}
 		);
 
-		// if (!isMatchedTarget) {
-		// 	pin.kill();
-		// 	return;
-		// }
-
-		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
 		const text1 = new SplitType(textRevealRef.current as any as TargetElement, {
 			types: 'chars',
 		});
@@ -69,8 +69,8 @@ export default function HorizontalSection() {
 		gsap.from(text1.chars, {
 			scrollTrigger: {
 				trigger: textRevealRef.current,
-				end: 'start left',
-				start: '-1500 left',
+				end: '-300 left',
+				start: '-1000 left',
 				containerAnimation: pin,
 				scrub: true,
 				id: '1',
@@ -82,12 +82,11 @@ export default function HorizontalSection() {
 		gsap.from(text2.chars, {
 			scrollTrigger: {
 				trigger: textReveal2Ref.current,
-				end: '-800 left',
+				end: '-300 left',
 				start: '-1000 left',
 				containerAnimation: pin,
 				scrub: true,
-				markers: true,
-				id: '2',
+				id: '12',
 			},
 			opacity: 0.1,
 			stagger: 0.1,
@@ -98,10 +97,11 @@ export default function HorizontalSection() {
 			}
 			pin.kill();
 		};
-	}, [isMatchedTarget]);
+	}, [width]);
 
 	useEffect(() => {
-		if (!isMatchedTarget) return;
+		if (width === null) return;
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: heroRef.current,
@@ -111,16 +111,20 @@ export default function HorizontalSection() {
 				invalidateOnRefresh: true,
 			},
 		});
+
 		const movement = -300;
+
 		tl.to(parallaxRef.current, { x: movement, ease: 'none' }, 0);
 		tl.to(bgRef.current, { backgroundPosition: -0.001, ease: 'none' }, 0);
-	}, [isMatchedTarget]);
+	}, [width]);
 
-	if (isMatchedTarget === false) {
+	if (width === null) return;
+
+	if (width < 768) {
 		return (
 			<main className="">
 				<Projects data={dataImageProjectOne} bg="bg-[#2F2E2C]" />
-				{/* <Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" /> */}
+				<Projects data={dataImageProjectTwo} bg="bg-[#2F2E2C]" />
 				<ProjectTitle />
 				<Blogs />
 				<BlogTitle />

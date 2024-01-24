@@ -34,10 +34,6 @@ export default function Home() {
 		initialiseLenisScroll();
 	}, []);
 
-	// if (isMatchedTarget === null) {
-	// 	return 'loading';
-	// }
-
 	return (
 		<main className="overflow-hidden">
 			<div className="relative">

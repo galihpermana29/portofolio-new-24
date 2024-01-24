@@ -47,8 +47,7 @@ export default function ProjectTitle({ refSection }: ProjectTitleI) {
 					<div
 						ref={refSection}
 						className="text-[55px] max-w-[700px] reveal-type">
-						Referes to all of previous works as a professional frontend
-						developer
+						Refers to all of previous works as a professional frontend developer
 					</div>
 				</div>
 			</div>
