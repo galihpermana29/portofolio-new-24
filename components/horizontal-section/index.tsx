@@ -10,7 +10,6 @@ import {
 } from '@/utils/data/data-projects';
 
 import gsap from 'gsap';
-import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/all';
 import { useWindowSize } from '@uidotdev/usehooks';
@@ -27,8 +26,6 @@ export default function HorizontalSection({ heroRef2 }: HorizontalSectionI) {
 	const textRevealRef = useRef(null);
 	const textReveal2Ref = useRef(null);
 	const titleRefSection = useRef(null);
-
-	const isMatchedTarget = useMediaQuery(768);
 
 	const { width } = useWindowSize();
 

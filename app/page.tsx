@@ -3,18 +3,15 @@ import LandingSection from '@/components/landing-section';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/all';
 import { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 
 import Technology from '@/components/technology';
 import Motto from '@/components/motto';
 import HorizontalSection from '@/components/horizontal-section';
-import { useMediaQuery } from '@/utils/hooks/useMediaQuery';
 import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Home() {
-	const isMatchedTarget = useMediaQuery(768);
 	const { width } = useWindowSize();
 
 	const heroRef = useRef(null);

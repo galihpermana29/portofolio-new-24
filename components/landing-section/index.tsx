@@ -31,7 +31,6 @@ export default function LandingSection() {
 				},
 				opacity: 0,
 				y: 60,
-				// stagger: 0.1,
 				duration: 0.5,
 			});
 		}
